@@ -981,16 +981,16 @@ footer a:hover {
 /* ===== WHATSAPP BUTTON ===== */
 .whatsapp-btn {
   position: fixed;
-  bottom: 20px;
-  right: 15px;
-  width: 60px;
-  height: 60px;
+  bottom: 100px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
   background: #25D366;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999999999; /* ultra high */
+  z-index: 10000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   border: 3px solid #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -1025,9 +1025,207 @@ footer a:hover {
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
   .whatsapp-btn {
-    bottom: 20px;
+    bottom: 100px;
     right: 15px;
     width: 60px;
     height: 60px;
   }
 }
+
+ /* === CUSTOMIZE: Change #c0392b to your brand color === */
+  :root {
+    --pf-primary: #c0392b;
+    --pf-dark: #1a1a2e;
+    --pf-radius: 14px;
+    --pf-font:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+ 
+  #pf-chat-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--pf-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(192,57,43,0.45);
+    z-index: 9999;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #pf-chat-btn:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(183,28,28,0.55); }
+ 
+  #pf-notif {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 18px;
+    height: 18px;
+    background: #e74c3c;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    font-family: var(--pf-font);
+  }
+ 
+  #pf-chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 28px;
+    width: 360px;
+    height: 520px;
+    background: #fff;
+    border-radius: var(--pf-radius);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    display: none;
+    flex-direction: column;
+    z-index: 9998;
+    overflow: hidden;
+    font-family: var(--pf-font);
+    animation: pfSlideUp 0.25s ease;
+  }
+  #pf-chat-window.open { display: flex; }
+ 
+  @keyframes pfSlideUp {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+ 
+  #pf-header {
+    background: var(--pf-dark);
+    padding: 13px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  #pf-header-logo {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: var(--pf-primary);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  #pf-gym-name { font-size: 14px; font-weight: 600; color: #fff; }
+  #pf-status { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 2px; display: flex; align-items: center; gap: 4px; }
+  #pf-dot { width: 6px; height: 6px; border-radius: 50%; background: #2ecc71; display: inline-block; }
+  #pf-close-btn { margin-left: auto; background: transparent; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center; border-radius: 6px; transition: background 0.15s; }
+  #pf-close-btn:hover { background: rgba(255,255,255,0.1); }
+ 
+  #pf-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f4f5f7;
+  }
+  #pf-messages::-webkit-scrollbar { width: 4px; }
+  #pf-messages::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+ 
+  .pf-row { display: flex; align-items: flex-end; gap: 6px; }
+  .pf-row.pf-u { flex-direction: row-reverse; }
+ 
+  .pf-avatar {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--pf-dark);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+ 
+  .pf-bubble {
+    max-width: 78%;
+    padding: 9px 12px;
+    font-size: 13px;
+    line-height: 1.55;
+    border-radius: 4px 12px 12px 12px;
+    background: #fff;
+    color: #1a1a2e;
+    border: 1px solid #e8e8e8;
+    word-wrap: break-word;
+  }
+  .pf-bubble.pf-u {
+    background: var(--pf-primary);
+    color: #fff;
+    border: none;
+    border-radius: 12px 4px 12px 12px;
+  }
+  .pf-bubble b { font-weight: 600; }
+ 
+  .pf-typing {
+    display: flex; align-items: center; gap: 4px; padding: 12px 14px;
+    background: #fff; border-radius: 4px 12px 12px 12px;
+    border: 1px solid #e8e8e8; max-width: 60px;
+  }
+  .pf-dot-t {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #aaa; display: inline-block;
+    animation: pfBounce 1.2s infinite;
+  }
+  .pf-dot-t:nth-child(2) { animation-delay: 0.2s; }
+  .pf-dot-t:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes pfBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
+ 
+  #pf-quick-area {
+    padding: 8px 12px;
+    background: #fff;
+    border-top: 1px solid #ebebeb;
+    flex-shrink: 0;
+  }
+  #pf-quick-label { font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+  #pf-quick-row { display: flex; gap: 5px; flex-wrap: wrap; }
+  .pf-qb {
+    font-size: 11.5px; padding: 4px 10px;
+    border-radius: 20px; border: 1px solid #ddd;
+    background: transparent; color: #555;
+    cursor: pointer; font-family: var(--pf-font);
+    transition: all 0.15s;
+  }
+  .pf-qb:hover { border-color: var(--pf-primary); color: var(--pf-primary); background: rgba(192,57,43,0.05); }
+ 
+  #pf-input-area {
+    padding: 10px 12px;
+    display: flex; gap: 8px; align-items: center;
+    background: #fff;
+    border-top: 1px solid #ebebeb;
+    flex-shrink: 0;
+  }
+  #pf-input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    outline: none;
+    background: #f9f9f9;
+    color: #1a1a2e;
+    font-family: var(--pf-font);
+    transition: border-color 0.15s;
+  }
+  #pf-input:focus { border-color: var(--pf-primary); background: #fff; }
+  #pf-send-btn {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: var(--pf-primary);
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+  #pf-send-btn:hover { opacity: 0.85; }
+ 
+  /* Mobile responsive */
+  @media (max-width: 480px) {
+    #pf-chat-window { width: calc(100vw - 24px); right: 12px; bottom: 88px; height: 480px; }
+    #pf-chat-btn { bottom: 20px; right: 15px; }
+  }
